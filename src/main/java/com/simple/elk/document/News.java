@@ -6,10 +6,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.Setting;
 
 @Document(indexName = "news")
 @Getter
 @Setter
+//@Setting(settingPath = "static/es-settings.json")
 public class News {
 
     @Id
@@ -17,6 +19,6 @@ public class News {
     private String id;
 
     @Field(type = FieldType.Text)
-    private String newsHeading;
+    private String news;
 
 }
