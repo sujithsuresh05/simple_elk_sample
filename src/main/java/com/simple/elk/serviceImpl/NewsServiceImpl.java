@@ -3,6 +3,7 @@ package com.simple.elk.serviceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.simple.elk.document.News;
 import com.simple.elk.dto.NewsDto;
+import com.simple.elk.exception.NewsIdNotFoundException;
 import com.simple.elk.repository.NewsRepository;
 import com.simple.elk.service.NewsService;
 import org.modelmapper.ModelMapper;
@@ -35,14 +36,9 @@ public class NewsServiceImpl implements NewsService {
 
 	}
 
-	// TODO implementation of findbyId
 	public NewsDto findById(final String id) {
-		News news = newsRepository.findById(id).orElse(null);
-		if(news != null) {
-
-		}
-		modelMapper.map(news, NewsDto.class);
-		return null;
+		News news = newsRepository.findById(id).orElseThrow( () -> new NewsIdNotFoundException(id));
+		return modelMapper.map(news, NewsDto.class);
 	}
 
 }
