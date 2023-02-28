@@ -45,6 +45,7 @@ public class NewsServiceImpl implements NewsService {
 	public NewsDto findById(final String id) {
 		LOG.info("find news with id " + id);
 		News news = newsRepository.findById(id).orElseThrow(() -> new NewsIdNotFoundException(id));
+		LOG.debug("find news with id " + modelMapper.map(news, NewsDto.class).getClass());
 		return modelMapper.map(news, NewsDto.class);
 	}
 

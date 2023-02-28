@@ -8,10 +8,11 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Setting;
 
-@Document(indexName = "news")
+import com.simple.elk.helper.Indices;
+
+@Document(indexName = Indices.NEWS_INDEX)
 @Getter
 @Setter
-//@Setting(settingPath = "static/es-settings.json")
 public class News {
 
     @Id
