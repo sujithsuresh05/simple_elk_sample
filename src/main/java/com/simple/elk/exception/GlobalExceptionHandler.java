@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import jakarta.servlet.http.HttpServletResponse;
 
 @RestControllerAdvice
-public class ExceptionHandlerController {
+public class GlobalExceptionHandler {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandlerController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
 	@ExceptionHandler(NewsIdNotFoundException.class)
 	public ResponseEntity<Object> handleNewsIdNotFoundException(NewsIdNotFoundException ex, HttpServletResponse res)

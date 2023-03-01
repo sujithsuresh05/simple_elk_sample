@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +19,7 @@ import com.simple.elk.dto.NewsDto;
 import com.simple.elk.serviceImpl.NewsServiceImpl;
 
 import io.micrometer.common.lang.Nullable;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/news")

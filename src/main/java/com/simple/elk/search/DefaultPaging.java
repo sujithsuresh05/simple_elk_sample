@@ -3,6 +3,11 @@ package com.simple.elk.search;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+/**
+ * Will be used as default pageable implementation
+ * @author sujiths
+ *
+ */
 public enum DefaultPaging implements Pageable{
 	
 	INSTANCE;
