@@ -18,13 +18,17 @@ import org.springframework.stereotype.Component;
 @Component("com.elk.simple")
 public class ElkConfiguration {
 
-    @Value("${config.elk.url}")
-    public String elasticSearchUrl;
+    @Value("${config.elk.hostname}")
+    public String elasticSearchHostname;
+    
+    // placeholder with default value
+    @Value("${config.elk.port:9200}")
+    public Integer elasticSearchPort;
 
     public ElasticsearchClient elasticsearchClient() {
         // Create the low-level client
         RestClient restClient = RestClient.builder(
-                new HttpHost("localhost", 9200)).build();
+                new HttpHost(elasticSearchHostname, elasticSearchPort)).build();
 
         // Create the transport with a Jackson mapper
         ElasticsearchTransport transport = new RestClientTransport(
